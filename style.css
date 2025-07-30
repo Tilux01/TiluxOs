@@ -1,0 +1,1062 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: 0;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url(backgroundImages/background.png);
+    background-size: cover;
+    background-attachment: fixed !important;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    transition: all 0.2s;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+.show{
+    visibility: visible !important;
+    transition: all 0.1s ease;
+    background-color: #1a1b2b;
+}
+
+p{
+    font-weight: 700;
+}
+.hoverWhite{
+    padding: 5px 7px;
+}
+.hoverWhite2{
+    padding: 2px 7px;
+}
+.hoverWhite:hover,
+.hoverWhite2:hover{
+    background-color: white;
+    border-radius: 10px; 
+}
+.flexItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.selfAlign{
+    display: flex;
+    align-self: center;
+}
+.selfJustify{
+    display: flex;
+    justify-self: center;
+}
+.column{
+    flex-direction: column;
+}
+.oneRem{
+    gap: 1rem;
+}
+.oneFiveRem{
+    gap: 1.5rem;
+}
+.tenPixel{
+    gap: 0.8rem;
+}
+header{
+    background-color: rgba(233, 225, 225, 0.842);
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 7px 2px;
+    justify-content: space-between;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.308);
+    font-size: 14px;
+    /* margin-bottom: 0.5rem; */
+}
+header img{
+    width: 30px;
+}
+header .longLine{
+    width: 30px;
+    height: 8px;
+    border-radius: 10px;
+    background-color: black;
+}
+header .dot{
+    width: 5px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.664);
+    border-radius: 10px;
+    margin-left: 6px;
+}
+header .realTime{
+    position: absolute;
+    left: 48%;
+}
+.resourceManager{
+    font-size: 13px;
+}
+.resourceManager div,
+header .optionArea div{
+    gap: 5px;
+}
+.resourceManager img,
+header .optionArea img{
+    width: 13px;
+}
+.resourceManager .swap{
+    transform: rotate(90deg);
+}
+header .optionArea .battery{
+    transform: rotate(-90deg);
+}
+header .optionArea{
+    gap: 0.7rem;
+}
+section{
+    display: flex;
+    height: calc(100vh - 25px);
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 50;
+}
+.sideMenu{
+    width: 0.2px;
+    min-height: 80%;
+    height: auto;
+    max-height: 90%;
+    overflow-y: scroll;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.226);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    align-items: center;
+    position: absolute;
+}
+.sideMenu:hover,
+.sideMenu:active,
+.sideMenu:focus{
+    width: 70px !important;
+    padding: 5px;
+    /* padding: 7px; */
+}
+.sideMenu div{
+    position: relative;
+    padding: 0px;
+    width: 100%;
+    /* animation: tilt 0.2s linear infinite; */
+}
+.sideMenu img{
+    width: 100%;
+    height: 60px;
+    object-fit: fill;
+    cursor: pointer;
+}
+.sideMenu img:hover{
+    background-color: rgba(255, 255, 255, 0.164);
+    border-radius: 10px;
+    border: 0.1px solid rgba(255, 255, 255, 0.27);
+}
+.showSide{
+    width: 70px !important;
+    padding: 5px;
+}
+#settings{
+    filter: invert(1) opacity(.6) !important;
+}
+.sideMenu::-webkit-scrollbar{
+    display: none;
+}
+section .allApp{
+    flex-wrap: wrap;
+    width: 100%;
+    visibility: hidden;
+    justify-content: space-between;
+    height: auto;
+    min-height: 96.5vh;
+    padding: 0% 12%;
+    position: absolute;
+    transition: all 0.2s ease;
+}
+section .allApp > .edit-parent{
+    position: absolute;
+    right: 3%;
+    top: 5%;
+    display: flex;
+    gap: 3rem;
+}
+section .allApp > .edit-parent img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+section .allApp > .edit-parent img:nth-child(1){
+    filter: opacity(.8);
+}
+section .allApp > .edit-parent img:nth-child(2){
+    filter: invert(1) opacity(.8);
+}
+section .allApp .monitor div img{
+    width: 200px;
+    height: 120px;
+}
+section .allApp .monitor{
+    gap: 2rem;
+}
+section .allApp .search{
+    margin: 1rem 0rem;
+}
+section .allApp .search input{
+    background-color: #55555581;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    border: 1px solid white;
+    outline: 0;
+    padding: 0px 20px;
+}
+section .allApp .search input::placeholder{
+    color: white;
+    font-weight: 700;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.767);
+}
+section .allApp .search input:hover,
+section .allApp .search input:focus{
+    background-color: white;
+}
+section .allApp .apps{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    flex-wrap: wrap !important;
+    gap: 1rem;
+    margin-top: 3rem;
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    height: 56vh;
+    padding-left: 35px;
+}
+section .allApp .apps::-webkit-scrollbar{
+    width: 5px;
+}
+section .allApp .apps::-webkit-scrollbar-thumb{
+    background: green;
+}
+section .allApp .apps::-webkit-scrollbar-corner{
+    background: transparent;
+}
+section .allApp .apps  div{
+    padding: 5px 10px;
+    display: flex;
+    /* justify-content: center; */
+    /* overflow: hidden; */
+    align-items: center;
+    z-index: 200;
+    flex-direction: column;
+    width:90px;
+    height: 100px;
+    cursor: pointer;
+    object-fit: contain;
+}
+section .allApp .apps  div img:nth-child(1){
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+}
+section .allApp .apps > div{
+    /* animation: tilt 0.2s linear infinite; */
+}
+@keyframes tilt {
+    0%{
+        transform: rotate(2deg);
+    }
+    50%{
+        transform: rotate(-2deg);
+    }
+    100%{
+        transform: rotate(2deg);
+    }
+}
+.edit-icon-parent{
+    position: absolute;
+    display: none;
+}
+.edit-icon-parent img{
+    width: 15px !important;
+    height: 15px !important;
+    position: absolute;
+    cursor: pointer;
+}
+.edit-icon-parent img:nth-child(1){
+    top: -10px;
+    left: 2px;
+}
+.edit-icon-parent img:nth-child(2){
+    background: rgb(233, 49, 3);
+    border-radius: 50%;
+    width: 15px;
+    top: -10px;
+    right: -2px;
+    height: 17px;
+    padding: 2px;
+}
+section .allApp .apps div:focus{
+    border-radius: 20px;
+    outline: 2px solid rgba(2, 26, 134, 0.349);
+    background-color: rgba(255, 255, 255, 0.062);
+}
+section .allApp .apps div img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+section .allApp .apps div p{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 12px;
+}
+section .allApp .apps > div:hover{
+    background-color: rgba(255, 255, 255, 0.062);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+}
+.bluetoothOption,
+.edgeOption,
+.placesOption,
+.appsOptions{
+    position: absolute;
+    right: 400px;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding:2px 7px;
+    border-radius: 20px;
+    visibility: hidden;
+}
+.edgeOption{
+    right: 390px;
+}
+.placesOption{
+    right: 70.5rem;
+}
+.appsOptions{
+    width: 550px;
+    right: 50rem;
+    display: flex !important;
+    flex-direction: row;
+}
+.bluetoothOption > div,
+.edgeOption > div,
+.placesOption > div{
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
+.bluetoothOption p,
+.edgeOption p,
+.placesOption p,
+.appsOptions p{
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.63);
+}
+.bluetoothOption p:hover,
+.edgeOption p:hover,
+.placesOption p:hover,
+.appsOptions p:hover{
+    background-color: #55555575;
+}
+/* .apps{
+    border: 2px solid red;
+} */
+/* .apps::-webkit-scrollbar{
+    height: 30px;
+} */
+
+.select{
+    width: 130px !important;
+    background: black !important;
+    border-radius: 10px !important;
+    height: auto !important;
+    padding: 5px !important;
+    /* position: relative; */
+}
+.select button{
+    z-index: 30000 !important;
+    position: relative;
+    width: 100%;
+    background: transparent;
+    font-weight: 600;
+    padding: 5px 0px;
+    color: whitesmoke;
+    /* border:  0 !important; */
+    border-top: 0.1px solid rgba(255, 255, 255, 0.267) !important;
+    border-left: 0 !important;
+    border-bottom: 0.1px solid rgba(255, 255, 255, 0.212) !important;
+}
+
+.dialogue{
+    position: absolute;
+    left: 0;
+    width: 90%;
+    max-width: 750px;
+    background: #acaeca;
+    z-index: 303;
+    left: 22.5%;
+    top: 17vh;
+    height: 68vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    display: none;
+}
+.dialogue .appProfile{
+    display: flex;
+    width: 100%;
+    gap: 3rem;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+.dialogue .appProfile .img-parent{
+    display: flex;
+    position: relative;
+}
+.dialogue .appProfile .img-parent label img{
+    width: 160px;
+    height: 160px;
+    background: #1a1b2b8f;
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid rgb(0, 0, 255);
+    cursor: pointer;
+}
+.dialogue .appProfile .img-parent label:nth-child(2) img{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -20px;
+    bottom: 20px;
+    padding: 0 !important;
+    border: 0;
+    border-radius: 0;
+    background: none;
+}
+.dialogue .appProfile div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.dialogue .appProfile div input,
+.dialogue .appProfile div select,
+.dialogue .description input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    outline: 0;
+    border: 0;
+    font-weight: 600;
+}
+.dialogue .appProfile div select option{
+    font-weight: 600;
+}
+.dialogue .description{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.dialogue .description textarea{
+    height: auto;
+    min-height: 100px;
+    padding: 10px;
+    font-weight: 600;
+    outline: 0;
+    border: 0;
+}
+.dialogue .button-parent{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+.dialogue .button-parent button{
+    padding: 10px 0px;
+    width: 100%;
+    border-radius: 10px;
+    background: rgb(25, 233, 25);
+    color: whitesmoke;
+    border: 0;
+    outline: 0;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.dialogue .button-parent button:nth-child(1){
+    background: rgb(255, 60, 0);
+}
+
+@keyframes shake {
+    0%{
+        transform: translateX(-1px);
+    }
+    100%{
+        transform: translateX(1px);
+    }
+}
+.settings{
+    position: absolute;
+    top: 21%;
+    left: 23%;
+    width: 90%;
+    max-width: 750px;
+    height: 400px;
+    background: rgb(33, 33, 36);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    display: none;
+}
+.settings .header{
+    width: 100%;
+    padding: 5px 8px;
+    background-color: rgba(233, 225, 225, 0.842);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.settings .header img{
+    float: right;
+    background: blue;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 3px;
+}
+.settings .header img:hover{
+    background: rgb(185, 23, 1);
+}
+.settings .main{
+    display: flex;
+    height: calc(100% - 31px);
+}
+.settings .options{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 10px;
+    height: 100%;
+    width: 25%;
+    border-right: 1px solid rgba(255, 255, 255, 0.13);
+    gap: 1rem;
+}
+.settings .options p{
+    width: 100%;
+    cursor: pointer;
+    height: 35px;
+    padding: 9px 10px;
+    color: whitesmoke;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+.settings .options p:nth-child(1){
+    background: #acaeca38;
+}
+.settings .options p:hover{
+    background: #acaeca38;
+}
+.settings .contents{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0px 15px;
+    width: 75%;
+    overflow-y: scroll;
+}
+.settings .contents::-webkit-scrollbar{
+    width: 5px;
+}
+.settings .contents::-webkit-scrollbar-thumb{
+    background: #acaeca38;
+}
+.settings .contents h2{
+    color: whitesmoke;
+    font-size: 22px;
+    margin-top: 15px;
+}
+.settings .contents select{
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: #acaeca54;
+    color: whitesmoke;
+    margin-top: 5px;
+    border: 0;
+}
+.settings .contents select option{
+    background: rgb(57, 57, 59);
+    font-weight: 600;
+    height: 30px;
+}
+.os-wallpaper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 20px;
+}
+.os-wallpaper img{
+    width: 150px;
+    height: 100px;
+    cursor: pointer;
+    border: 3px solid blue;
+    border-radius: 10px;
+}
+.os-wallpaper .addImg{
+    object-fit: contain;
+    padding: 10px;
+    background: rgb(57, 57, 59);
+    border: 0;
+}
+.boot{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 20000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6rem;
+    padding-top: 5rem;
+}
+.boot .bootLogo{
+    width: 200px;
+}
+.boot h1{
+    color: whitesmoke;
+    font-size: 37px;
+}
+.boot div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.boot .loader{
+    filter: invert(1);
+    animation: load 1s linear infinite;
+}
+@keyframes load {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes fade {
+    100%{
+        filter: opacity(.3);
+    }
+}
+
+.loginPage{
+    width: 100vw;
+    height: calc(100vh - 25px);
+    position: absolute;
+    background: url(backgroundImages/background12.jpg);
+    margin-top: 25px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+    backdrop-filter: blur(10px);
+}
+
+.loginPage::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+.loginPage .select-user{
+    width: 330px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.226);
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    gap: 3rem;
+    padding-left: 30px;
+    align-items: center;
+}
+.loginPage .select-user h2{
+    font-size: 35px;
+    color: whitesmoke;
+}
+.loginPage .select-user img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.passPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+.passPage img{
+    width: 180px;
+}
+.passPage h2{
+    font-size: 30px;
+    color: whitesmoke;
+}
+.passPage input{
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.226);
+    background: rgba(255, 255, 255, 0.178);
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 7vh;
+}
+.passPage input::placeholder{
+    color: rgba(245, 245, 245, 0.438);
+}
+
+.createAcc{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createAcc small{
+    color: rgb(7, 7, 189);
+    cursor: pointer;
+}
+.createAcc small:hover,
+.createAcc small:focus,
+.createAcc small:active{
+    color: white;
+}
+@keyframes slide {
+    100%{
+        transform: translateX(-100%);
+    }
+}
+.createAcc::before{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    background: url(backgroundImages/SignUp.jpg);
+    filter: blur(4px);
+    background-size: cover;
+}
+.createAcc .form{
+    width: 90%;
+    max-width: 750px;
+    border-radius: 10px;
+    height: 450px;
+    background: rgba(255, 255, 255, 0.151);
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    z-index: 1200;
+    gap: 5px;
+    padding: 1rem 20px 0rem 20px;
+    color: whitesmoke;
+}
+.createAcc .form img{
+    width: 100px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 100px;
+}
+.createAcc .form input{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    color: whitesmoke;
+    background: #acaeca3f;
+}
+.createAcc .form input::placeholder{
+    color: rgba(245, 245, 245, 0.363);
+}
+.createAcc .form button{
+    width: 300px;
+    padding: 10px 0px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 0;
+    background: hsl(17, 100%, 50%);
+    color: whitesmoke;
+    cursor: pointer;
+}
+.createAcc .form button:hover{
+    background: hsl(17, 100%, 45%);
+}
+.createAcc .form .loader{
+    justify-self: center;
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    filter: invert(1);
+    animation: load 2s linear infinite;
+    margin-top: 5rem;
+}
+.createAcc .form h2{
+    font-size: 50px;
+    color: whitesmoke;
+    font-weight: 900;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: showText 1.5s 1;
+    overflow: hidden;
+}
+@keyframes showText {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 400px;
+    }
+}   
+
+.createAcc .form .checkBoxParent{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    text-align: start;
+    margin-top: 1rem;
+    width: 100%;
+}
+.createAcc .form p{
+    line-height: 35px;
+    text-align: center;
+}
+.createAcc .form h3{
+    width: 100%;
+    text-align: center;
+    margin: 10px 0px;
+}
+/* .createAcc .form .checkBoxParent div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createAcc .form .checkBoxParent div input{
+    width: 20px;
+}
+.createAcc .form .checkBoxParent div small{
+    font-weight: 600;
+} */
+
+.toggleBar{
+    position: absolute;
+    right: 5px;
+    top: 0;
+    width: 350px;
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 30px;
+    height: auto;
+    background: hsl(0, 2%, 15%);
+    color: whitesmoke;
+    display: none;
+    z-index: 500;
+}
+.show-bar{
+    display: block !important;
+}
+.toggleBar img{
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+.toggleBar .barHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.toggleBar .barHeader .battery-parent{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background: #2e2d2d;
+    padding: 7px 12px;
+    border-radius: 20px;
+}
+.toggleBar .barHeader .battery-parent:hover{
+    background: hsl(0, 1%, 22%);
+}
+.toggleBar .barHeader .other-header-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    gap: 5px;
+}
+.toggleBar .barHeader .other-header-parent img{
+    padding: 12px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer !important;
+    height: auto;
+    background: #d1d2d2;
+}
+.toggleBar .barHeader .other-header-parent img:hover{
+    background: hsl(180, 1%, 72%);
+    z-index: 1000;
+}
+.toggleBar .powerSelect{
+    padding: 8px 12px;
+    background: hsl(0, 2%, 17%);
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    gap: 5px;
+}
+.toggleBar .powerSelect .start{
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+    align-items: center;
+}
+.toggleBar .powerSelect .start img{
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: hsl(180, 3%, 75%);
+    border-radius: 50%;
+}
+.toggleBar .powerSelect .start h1{
+    font-size: 25px;
+}
+.toggleBar .powerSelect p{
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+.toggleBar .powerSelect p:hover{
+    background: hsl(0, 3%, 19%) !important;
+}
+.toggleBar .showPower{
+    display: flex;
+}
+.toggleBar .sound,
+.toggleBar .brightness{
+    display: flex;
+    gap: 20px;
+    margin: 20px 0px;
+    padding: 0px 10px;
+}
+.toggleBar .sound input,
+.toggleBar .brightness input{
+    flex: 1;
+}
+.toggleBar .button-toggle-parent{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 8px 0px 10px;
+    justify-content: space-between;
+    gap: 10px;
+}
+.toggleBar .button-toggle-parent div{
+    width: calc(50% - 10px);
+    background: rgb(49, 49, 53);
+    display: flex;
+    gap: 10px;
+    padding: 11px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.toggleBar .button-toggle-parent .bg-change{
+    background: blue;
+}
+.browserApp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    max-width: 90vw;
+    z-index: 850;
+    margin-top: -12px;
+    height: calc(100vh - 50px);
+}
+.browserApp .header{
+    width: 100%;
+    height: 25px;
+}
+.browserApp .header img{
+    float: right;
+    padding: 5px;
+    margin-right: -30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    background: rgba(255, 0, 0, 0.671);
+    width: 30px;
+    border-radius: 50%;
+}
+.browserApp .header img:hover{
+    background: rgba(255, 0, 0, 0.801);
+}
+.browserApp .iframe-parent{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.browserApp .iframe-parent .loader{
+    background: #e3edf7;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+}
+.browserApp .iframe-parent .loader img{
+    width: 100px;
+    height: 100px;
+    animation: load 1s linear infinite;
+}
+.browserApp .iframe-parent iframe{
+    width: 100%;
+    height: 100%;
+    /* background: #acaeca; */
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.userPath = window.location.pathname.replace(/^\//, '');
+    </script>
+</head>
+<body>
+    <header id="header" class="headerOverall">
+        <div id="header" class="flexItem tenPixel">
+            <div id="menu1" class="flexItem hoverWhite themeItemButton" onclick="menu()">
+                <div class="longLine"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="list flexItem tenPixel">
+                <p id="apps" class="hoverWhite2" onclick="app()">Apps</p>
+                <p id="places" class="hoverWhite2" onclick="places()">Places</p>
+            </div>
+        </div>
+        <div class="realTime hoverWhite2">
+            <p id="time">01:10</p>
+        </div>
+        <div class="icons flexItem tenPixel">
+            <img id="edge" class="hoverWhite2" src="images/microsoft.png" alt="" onclick="edge()">
+            <img id="bluetooth" class="hoverWhite2" src="images/bluetooth.png" alt="" onclick="bluetooth()">
+            <div class="flexItem resourceManager oneRem hoverWhite2 themeItem">
+                <div class="flexItem">
+                    <img src="images/chip.png" alt="">
+                    <p id="cpu">36%</p>
+                </div>
+                <div class="flexItem">
+                    <img src="images/memory.png" alt="">
+                    <p id="ram">71%</p>
+                </div>
+                <div class="flexItem">
+                    <img class="swap" src="images/trafic.png" alt="">
+                    <p id="swap">18%</p>
+                </div>
+                <div class="flexItem">
+                    <img src="images/up-arrow.png" alt="">
+                    <p id="upload">0.5kb</p>
+                </div>
+                <div class="flexItem">
+                    <img class="down" src="images/up-arrow.png" alt="">
+                    <p id="download">0.5kb</p>
+                </div>
+            </div>
+            <div class="flexItem optionArea hoverWhite2 themeItem" onclick="toggleBarEvent()">
+                <img src="images/brightness (2).png" alt="">
+                <img src="images/wifi.png" alt="">
+                <img src="images/volume.png" alt="">
+                <div class="flexItem">
+                    <img class="battery" src="images/half-battery.png" alt="">
+                    <p class="batteryStatus">58%</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section id="deselect" onclick="deselect()">
+    </section>
+    <!-- Drop Down Menus -->
+    <div id="bluetoothOption" class="bluetoothOption">
+        <div>
+            <p>Turn Bluetooth On</p>
+        </div>
+        <div>
+            <p>Send Files To Device..</p>
+        </div>
+        <div>
+            <p>Reconnect to</p>
+        </div>
+        <div class="column" style="display: flex;">
+            <p>Devices</p>
+            <p>Adapters</p>
+            <p>Local Services</p>
+        </div>
+        <div class="column" style="display: flex;">
+            <p>Plugins</p>
+            <p>Help</p>
+            <p>Exit</p>
+        </div>
+    </div>
+
+    <div id="edgeOption" class="edgeOption">
+        <div>
+            <p>About Microsoft Edge</p>
+            <p>Browser task manager</p>
+        </div>
+        <div>
+            <p>Color Picker for Chrome</p>
+        </div>
+        <div>
+            <p>Let Microsoft Edge run in the background</p>
+            <p>Close Microsoft edge</p>
+        </div>
+    </div>
+
+    <div id="placesOption" class="placesOption">
+        <div>
+            <p>Home</p>
+            <p>Documents</p>
+            <p>Downloads</p>
+            <p>Music</p>
+            <p>Pictures</p>
+            <p>Videos</p>
+        </div>
+        <div>
+            <p>Computer</p>
+        </div>
+        <div>
+            <p>Browse Network</p>
+        </div>
+    </div>
+    <div class="controlCenter">
+        <div class="flexItem">
+            
+        </div>
+    </div>
+
+    <div id="appsOptions" class="appsOptions">
+        <div>
+            <p>Favorites</p>
+            <p onmouseover="dropList(informationGathering)">01 - Information Gathering  ></p>
+            <p onmouseover="dropList(vulnerabiltyAnalysis)">02 - Vulnerability Analysis</p>
+            <p onmouseover="dropList(webApplicationAnalysis)">03 - Web Application Analysis  ></p>
+            <p onmouseover="dropList(dataBaseAssessment)">04 - Database Assessment</p>
+            <p onmouseover="dropList(passwordAttacks)">05 - Password Attacks  ></p>
+            <p onmouseover="dropList(wirelessAttacks)">06 - Wireless Attacks  ></p>
+            <p onmouseover="dropList(reverseEngineering)">07 - Reverse Engineering</p>
+            <p onmouseover="dropList(explotationTools)">08 - Exploitation Tools</p>
+            <p onmouseover="dropList(sniffingSpoofing)">09 - Sniffing & spoofing  ></p>
+            <p onmouseover="dropList(postExploitation)">10 - Post Exploitation  ></p>
+            <p onmouseover="dropList(forensisc)">11 - Forensics  ></p>
+            <p onmouseover="dropList(reportingTools)">12 - Reporting Tools</p>
+            <p >13 - Social Engineering Tools</p>
+            <p>42 - Kali & OffSec links</p>
+            <p>Edge Apps</p>
+            <p>Usual Applications  ></p>
+            <p>Wine  ></p>
+        </div>
+        <div id="showAppsOption">
+            <p>maltego (installer)</p>
+            <p>msfpc</p>
+            <p>setoolkit</p>
+        </div>
+    </div>
+    <div class="dialogue" id="dialogue">
+        <div class="appProfile">
+            <div class="img-parent">
+                <label for="appImgUpload"><img src="appImages/icons8-card-game-50.png" alt="" id="appImg"></label>
+                <label for="appImgUpload"><img src="images/edit.png" alt="" id="editApps"></label>
+                <input type="file" name="" id="appImgUpload" style="display: none;" accept="images/*" onchange="appImageUpload()">
+            </div>
+            <div>
+                <input type="text" name="" placeholder="App Name" id="appName" oninput="appName()">
+                <input type="text" placeholder="Developer Name" id="appDeveloperName" oninput="appDeveloperName()">
+                <select name="" id="appCategory" onchange ="appCategory()">
+                    <option value="" disabled>Category</option>
+                    <option value="Productivity">Productivity</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Graphics-&-Design">Graphics & Design</option>
+                    <option value="Multimedia">Multimedia</option>
+                    <option value="Game">Game</option>
+                    <option value="Business">Business</option>
+                    <option value="Educational">Educational</option>
+                    <option value="Browsers">Browsers</option>
+                    <option value="Social-Media">Social Media</option>
+                </select>
+            </div>
+        </div>
+        <div class="description">
+            <input type="text" placeholder="App Link" id="appLink" oninput="appLink()">
+            <input type="text" placeholder="GitHub Link" id="appGitHubLink">
+            <textarea name="" placeholder="App description" id="appDescription" oninput="appDescription()"></textarea>
+        </div>
+        <div class="button-parent">
+            <button id="addCancel" onclick="addCancelBtn()">Cancel</button>
+            <button id="addDone" onclick="addDoneBtn()">Done</button>
+            <button id="editDone" style="display: none;" onclick="editDoneBtn()">Done</button>
+        </div>
+    </div>
+    <div class="settings" draggable="true" id="settingsApp">
+        <div class="header">
+            <img src="images/icon-close.svg" alt="" onclick="closeSettings()">
+        </div>
+        <div class="main">
+            <div class="options">
+                <p class="settingsSection" id="fontsSection" onclick="fontsSection()">Fonts</p>
+                <p class="settingsSection" id="appearanceSection" onclick="appearanceSection()">Appearance</p>
+                <p class="settingsSection" id="wallpaperSection" onclick="wallpaperSection()">Wallpaper</p>
+                <p class="settingsSection" id="taskbarSection">Taskbar</p>
+            </div>
+            <div class="contents" id="settingsContent">
+                <h2 style="margin-top: 25px;">Font Size</h2>
+                <select name="" id="fontSizeId" onchange="fontSize()">
+                    <option value="12px">small</option>
+                    <option value="14px" selected>medium</option>
+                    <option value="17px">large</option>
+                </select>
+                <h2>Font Weight</h2>
+                <select id="fontWeightId" onchange="fontWeight()">
+                    <option value="lighter">lighter</option>
+                    <option value="500" >normal</option>
+                    <option value="600" selected>bold</option>
+                    <option value="700">bolder</option>
+                </select>
+                <h2>Preffered Font</h2>
+                <select id="fontId" onchange="font()">
+                    <option value="Arial">Arial</option>
+                    <option value="monospace">Monospace</option>
+                    <option value="sans-serif" selected>Sans-serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="Georgia">Georgia</option>
+                </select>
+                
+            </div>
+        </div>
+    </div>
+    <div class="toggleBar">
+        <div class="barHeader">
+            <div class="battery-parent">
+                <img src="images/half-battery.png" alt="" class="battery">
+                <p class="batteryStatus">58%</p>
+            </div>
+            <div class="other-header-parent">
+                <img src="images/capture.png" alt="">
+                <img src="images/settings.png" alt="" id="settingsBar" onclick="settingsBar()">
+                <img src="images/padlock.png" alt="" id="lock" onclick="lock()">
+                <img src="images/power-switch.png" alt="" onclick="powerOption()">
+            </div>
+        </div>
+        <div class="powerSelect">
+            <div class="start">
+                <img src="images/power-switch.png" alt="">
+                <h1>Power Off</h1>
+            </div>
+            <p onclick="lock()">Suspend</p>
+            <p>Restart</p>
+            <p>Power Off</p>
+        </div>
+        <div class="sound">
+            <img src="images/volume.png" alt="">
+            <input type="range" id="volume">
+        </div>
+        <div class="brightness">
+            <img src="images/brightness.png" alt="">
+            <input type="range" id="brightness" value="100" onchange="brightness()">
+        </div>
+        <div class="button-toggle-parent" id="wifiMenu" onclick="wifiMenu()">
+            <div class="wifi">
+                <img src="images/wifi.png" alt="">
+                <p>Wi-Fi</p>
+            </div>
+            <div class="ethernet" id="ethernet" onclick="ethernet()">
+                <img src="images/wifi.png" alt="">
+                <p>Ethernet</p>
+            </div>
+            <div class="bluetooth" id="bluetoothMenu" onclick="bluetoothMenu()">
+                <img src="images/bluetooth.png" alt="">
+                <p>Bluetooth</p>
+            </div>
+            <div class="power-saver" id="darkStyle" onclick="darkStyle()">
+                <img src="images/power-switch.png" alt="">
+                <p>Dark Style</p>
+            </div>
+            <div class="night-sight" id="nightLight" onclick="night()">
+                <img src="images/brightness (2).png" alt="">
+                <p>Night Light</p>
+            </div>
+            <div class="theme-style" id="powerSaver" onclick="powerSaver()">
+                <img src="images/half-battery.png" alt="">
+                <p>Power Saver</p>
+            </div>
+        </div>
+    </div>
+    <div class="boot">
+        <img src="backgroundImages/distributor-logo-kali-linux.svg" alt="" class="bootLogo">
+        <div>
+            <h1 class="loadContent">Tilux Developer Os</h1>
+            <img src="backgroundImages/loader.png" alt="" class="loader">
+        </div>
+    </div>
+    <div class="loginPage before">
+        <div class="select-user" onclick="useUser()">
+            <img src="images/user.png" alt="" id="welcomeImg">
+            <h2>Tilux</h2>
+        </div>
+    </div>
+    <div class="createAcc">
+        <div class="form">
+            <label for="signImage">
+                <img src="images/user.png" alt="" id="signImagePreview">
+            </label>
+            <input type="file" id="signImage" style="display: none;" accept="images/*" onchange="signImage()">
+            <input type="text" placeholder="Full Name" id="signFullName">
+            <input type="text" placeholder="UserName" id="signUserName">
+            <input type="email" placeholder="Email" id="signEmail">
+            <input type="text" placeholder="profession" id="signProfession">
+            <input type="password" name="" placeholder="password" id="signPassword">
+            <input type="password" placeholder="Confirm Password" id="signConfirmPassword">
+            <small onclick="logInNav()">Already have an account? Login</small>
+            <button onclick="signUp()">Next</button>
+        </div>
+    </div>
+</body>
+<script type="module" src="script.js"></script>
+</html>

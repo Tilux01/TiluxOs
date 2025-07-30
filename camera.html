@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video src="" width="600px" height="350px" id="video"></video>
+    <button id="startCm">Start Camera</button>
+    <button id="stopCm">stop camera</button>
+</body>
+<script>
+    const video = document.getElementById("video")
+    const startCm = document.getElementById("startCm")
+    const stopCm = document.getElementById("stopCm")
+    startCm.addEventListener("click", async()=>{
+        const stream = await navigator.mediaDevices.getUserMedia({video:true})
+        video.srcObject = stream
+        video.play()
+    })
+</script>
+</html>
