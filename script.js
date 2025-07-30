@@ -1705,7 +1705,6 @@ window.restart = () =>{
 }
 
 if(window.innerWidth < 1174){
-    alert("Lower")
     document.querySelector("body").innerHTML = `<div class="overall">
                             <h1>Os is not available for mobile</h>
                         </div>`
