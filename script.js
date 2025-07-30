@@ -20,20 +20,17 @@ const db = getDatabase(databaseApp)
 
 
 const usernameGet = window.userPath || undefined;
-console.log(usernameGet);
 const getUser = JSON.parse(localStorage.getItem("userCredential")) || undefined
 const path = window.location.pathname
 const username = path.split('/')[1]
-console.log(username);
 
 if(usernameGet){
     get(ref(db, `Users/obj/${usernameGet}/userCredentials/obj/signUserName`))
     .then((output)=>{
         if(output.exists()){
-            console.log(output.val());
         }
         else{
-            window.location.href = "http://127.0.0.1:8080/"
+            window.location.href = "https://tilux-os-93lt.vercel.app/"
         }
     })
 }
@@ -50,12 +47,12 @@ if (getUser != undefined) {
                         }
                         else{
                             localStorage.removeItem("userCredential")
-                            window.location.href = "http://127.0.0.1:8080/"
+                            window.location.href = "https://tilux-os-93lt.vercel.app/"
                         }
                     }
                     else{
                         localStorage.removeItem("userCredential")
-                        window.location.href = "http://127.0.0.1:8080/"
+                        window.location.href = "https://tilux-os-93lt.vercel.app/"
                     }
                 })
             }
@@ -74,12 +71,12 @@ if (getUser != undefined) {
                         if (outputUnique.val() == getUser.uniqueId) {}
                         else{
                             localStorage.removeItem("userCredential")
-                            window.location.href = "http://127.0.0.1:8080/"
+                            window.location.href = "https://tilux-os-93lt.vercel.app/"
                         }
                     }
                     else{
                         localStorage.removeItem("userCredential")
-                        window.location.href = "http://127.0.0.1:8080/"
+                        window.location.href = "https://tilux-os-93lt.vercel.app/"
                     }
                 })
             }
@@ -132,7 +129,6 @@ setInterval(() => {
     const UsedRam = (performance.memory.usedJSHeapSize / 1048576).toFixed(2)
     const totalUsedRam = ((navigator.deviceMemory * 1000 - UsedRam) / (100 * navigator.deviceMemory)).toFixed(2)
     ram.textContent = totalUsedRam + "%"
-    console.log(totalUsedRam);
 }, 1000);
 
 const loadPage = async() =>{
@@ -331,8 +327,6 @@ const loadPage = async() =>{
                                 uniqueId,
                                 signUserName: signUserName.value.toLowerCase()
                             }
-                            console.log(localStorageSet);
-                            console.log(awaitUseCredentials);
                             form.innerHTML = `
                                 <img src="backgroundImages/loader.png" alt="" class="loader">
                                 <h2>Welcome,&nbsp;${awaitUseCredentials.signUserName}</h2>
@@ -350,7 +344,6 @@ const loadPage = async() =>{
                                 `
                                 const next = document.getElementById("next")
                                 next.addEventListener("click", async() =>{
-                                    // localStorage.setItem("TiluxOs", JSON.stringify(awaitUseCredentials))
                                     const TiluxOsObj = {
                                         fontSize: "14px",
                                         fontWeight: "600",
@@ -385,8 +378,6 @@ const loadPage = async() =>{
                                         </div>
                                     </div>
                                     `
-                                    // localStorage.setItem("TiluxOsObj", JSON.stringify(TiluxOsObj))
-                                    // localStorage.setItem("TiluxDesktop", desktop)
                                     const newAppArray = [
                                         {name:"Calculator",icon:"appImages/calculator.png",DeveloperName:"Tilux",category:"Productivity",Attributes:[{openLink:"https://calculator2-theta-lac.vercel.app/",editApp:false,addToBar:true,gitHubLink:"",showUrl:false, appDetails:"Calculator application"}]},
                                         {name:"Typing Game",icon:"appImages/keyboard.png",DeveloperName:"Tilux",category:"Game",Attributes:[{openLink:"https://tilux-beacon.vercel.app/",editApp:false,addToBar:true,gitHubLink:"",showUrl:false, appDetails:"Typing practice game"}]},
@@ -459,8 +450,6 @@ await get(ref(db, `Users/obj/${window.userPath}/TiluxDesktop/obj`))
 .then((output)=>{
     if (output.exists()) {
         userDashBoard = output.val()
-        console.log(output.val());
-        
     }
 })
 let userCred;
@@ -468,7 +457,6 @@ await get(ref(db, `Users/obj/${window.userPath}/userCredentials/obj`))
 .then((output)=>{
     if (output.exists()) {
         userCred = output.val()
-        console.log(userCred)
     }
 })
 window.useUser = async() =>{
@@ -480,7 +468,6 @@ window.useUser = async() =>{
         .then((output)=>{
             if (output.exists()) {
                 getItem = output.val()
-                console.log();
             }
         })
         sideBarMap()
@@ -520,7 +507,6 @@ window.useUser = async() =>{
                     .then((output)=>{
                         if (output.exists()) {
                             getItem = output.val()
-                            console.log();
                         }
                     })
                     sideBarMap()
@@ -547,7 +533,6 @@ window.useUser = async() =>{
     }
 }
 
-// localStorage.setItem("TiluxDesktop", document.getElementById("deselect").innerHTML)
 
 
 let header = document.getElementById("header")
@@ -656,14 +641,6 @@ let reportingTools = `<p>cherrytree</p>
 function dropList(params) {
     showAppsOption.innerHTML = params
 }
-// deselectList.forEach((deselect)=>{
-//     deselect.addEventListener("click",()=>{
-//         closeAllOption(edgeOption)
-//         closeAllOption(bluetoothOption)
-//         closeAllOption(placesOption)
-//         closeAllOption(appsOption)
-//     })
-// }) 
 window.closeAllOption = (parameter) =>{
     parameter.classList.remove("show")
 }
@@ -719,7 +696,6 @@ get(ref(db, `Users/obj/${window.userPath}/appArray/obj`))
 .then((output)=>{
     if (output.exists()) {
         applicationsArray = output.val()
-        console.log(output.val());
     }
 })
 
@@ -728,8 +704,6 @@ get(ref(db, `Users/obj/${window.userPath}/osDefaultWallpaper/obj`))
 .then((output)=>{
     if (output.exists()) {
         OsDefaultWallpaperArray = output.val()
-        console.log(output.val());
-        
     }
 })
 
@@ -737,7 +711,6 @@ let uploadedWallpaperArray;
 get(ref(db, `Users/obj/${window.userPath}/userUploadWallpaper/obj`))
 .then((output)=>{
     if (output.exists()) {
-        console.log(output);
         uploadedWallpaperArray = output.val()
     }
 })
@@ -749,8 +722,6 @@ window.OsDefaultWallpaperMap = () =>{
         OsParent.innerHTML += `
             <img src="${output}" onclick="setWallpaper('${output}')">
         `
-        console.log("chaii");
-        
     })
     OsParent.innerHTML +=`
         <label for="wallPaperUploadId"><img src="images/add.png" alt="" class="addImg"></label>
@@ -832,7 +803,6 @@ window.allAppParentMap = () =>{
     })
 }
 document.addEventListener("click",(e)=>{
-    console.log(e.target);
     if(e.target.id == "allApp" || e.target.id == "monitor" || e.target.id == "appArrayParent"){
         document.querySelectorAll(".sideMenu div").forEach((sideDiv)=>{
             sideDiv.style.animation = ""
@@ -975,7 +945,6 @@ window.openApp = (param) => {
         e.target.style.background = "black"
     })
     return;
-    // window.open(param, "blank", "width=1050px,height=500px,left=250,top=150")
 }
 
 window.closeApp = () =>{
@@ -1013,7 +982,6 @@ const editDoneBtn = document.getElementById("editDone")
 window.appCategory = ()=>{
     let appImg = document.getElementById("appImg")
     appImg.src = `appImages/${appCategory.value}.png`
-    console.log(appImg.src);
 }
 
 window.appImageUpload = ()=>{
@@ -1209,7 +1177,6 @@ window.editApp = (index) =>{
     useIndex = index
     addDoneBtn.style.display = "none"
     editDoneBtn.style.display = "block"
-    console.log(document.getElementById("editDone"));
 }
 
 
@@ -1358,7 +1325,6 @@ window.fontWeight = async() =>{
     const fontWeightId = document.getElementById("fontWeightId")
     document.querySelectorAll("p").forEach((p)=>{
         p.style.fontWeight = fontWeightId.value
-        // console.log(p);
     })
     let getItems;
     await get(ref(db, `Users/obj/${window.userPath}/TiluxOsObj/obj`))
@@ -1382,7 +1348,6 @@ window.fontWeightApply = (param) =>{
 window.font = async() =>{
     const fontId = document.getElementById("fontId")
     document.querySelectorAll("*").forEach((p)=>{
-        console.log(fontId.value);
         p.style.fontFamily = fontId.value
     })
     let getItems;
@@ -1434,7 +1399,6 @@ window.theme = async() =>{
             themeDark.style.background = "black"
         })
         document.querySelector(".settings .header").style.background = "#e9e1e1d7"
-        console.log(document.querySelector(".settings .header").style.background);
     }
     let getItems;
     await get(ref(db, `Users/obj/${window.userPath}/TiluxOsObj/obj`))
@@ -1475,7 +1439,6 @@ window.themeApply = async(param) =>{
             themeDark.style.background = "black"
         })
         document.querySelector(".settings .header").style.background = "#e9e1e1d7"
-        console.log(document.querySelector(".settings .header").style.background);
         
         await set(ref(db, `Users/obj/${window.userPath}/TiluxDesktop`),{
             obj: document.getElementById("deselect").innerHTML
