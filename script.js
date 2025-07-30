@@ -9,8 +9,6 @@ const firebaseConfig = {
     messagingSenderId: "929761784223",
     appId: "1:929761784223:web:ac6fafb4e2fe5aafa98daa"
 };
-
-
 const appSettings = {
     databaseURL: "https://tiluxos-default-rtdb.firebaseio.com/"
 }
@@ -1706,5 +1704,13 @@ window.restart = () =>{
     }, 4000);
 }
 
-loadPage()
+if(window.innerWidth < 1174){
+    alert("Lower")
+    document.querySelector("body").innerHTML = `<div class="overall">
+                            <h1>Os is not available for mobile</h>
+                        </div>`
+}
+else{
+    loadPage()
+}
 
