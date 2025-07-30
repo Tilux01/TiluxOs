@@ -1654,5 +1654,57 @@ window.ethernet = ()=>{
     ethernet.classList.toggle("bg-change")
 }
 
+window.powerOff = () =>{
+    body.innerHTML = `
+        <div class="boot">
+            <img src="backgroundImages/distributor-logo-kali-linux.svg" alt="" class="bootLogo">
+            <div>
+                <h1 class="loadContent">Tilux Developer Os</h1>
+                <img src="backgroundImages/loader.png" alt="" class="loader">
+            </div>
+        </div>
+    `
+    setTimeout(() => {
+        document.querySelector(".loadContent").textContent = "Saving Settings"
+        setTimeout(() => {
+            document.querySelector(".loadContent").textContent = "Saving Configuration"
+            setTimeout(() => {
+                document.querySelector(".loadContent").textContent = "Shutting Down"
+            }, 1000);
+        }, 500);
+    }, 1000);
+    setTimeout(() => {
+        window.location.href = "about:blank"
+    }, 3000);
+}
+
+window.restart = () =>{
+    const currentLocation = window.location.href
+    body.innerHTML = `
+        <div class="boot">
+            <img src="backgroundImages/distributor-logo-kali-linux.svg" alt="" class="bootLogo">
+            <div>
+                <h1 class="loadContent">Tilux Developer Os</h1>
+                <img src="backgroundImages/loader.png" alt="" class="loader">
+            </div>
+        </div>
+    `
+    setTimeout(() => {
+        document.querySelector(".loadContent").textContent = "Saving Settings"
+        setTimeout(() => {
+            document.querySelector(".loadContent").textContent = "Saving configuration"
+            setTimeout(() => {
+                document.querySelector(".loadContent").textContent = "Restarting Os"
+                setTimeout(() => {
+                    document.querySelector("body").innerHTML = ""
+                }, 500);
+            }, 1000);
+        }, 500);
+    }, 1000);
+    setTimeout(() => {
+        window.location.href = currentLocation
+    }, 4000);
+}
+
 loadPage()
 
