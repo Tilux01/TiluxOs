@@ -456,6 +456,8 @@ await get(ref(db, `Users/obj/${window.userPath}/userCredentials/obj`))
     if (output.exists()) {
         userCred = output.val()
     }
+    const UserWelcomeDisplayName = document.getElementById("UserWelcomeDisplayName")
+    UserWelcomeDisplayName.innerHTML = userCred.signUserName
 })
 window.useUser = async() =>{
     if ((usernameGet != undefined && getUser == undefined) || (usernameGet != undefined && getUser.signUserName != usernameGet)) {
@@ -490,7 +492,7 @@ window.useUser = async() =>{
         loginPage.innerHTML = `
             <div class="passPage">
                 <img src="backgroundImages/distributor-logo-kali-linux.svg" class="logo">
-                <h2>Tilux</h2>
+                <h2>${userCred.signUserName}</h2>
                 <input placeholder="password" autofocus id="passwordInput" type="password">
             </div>
         `
